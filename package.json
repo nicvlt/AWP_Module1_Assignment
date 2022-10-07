@@ -4,5 +4,20 @@
   },
   "scripts": {
     "start": "node index.js"
-  }
+  },
+  "name": "advancedwebprograming_assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicvlt/AdvancedWebPrograming_Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicvlt/AdvancedWebPrograming_Assignment/issues"
+  },
+  "homepage": "https://github.com/nicvlt/AdvancedWebPrograming_Assignment#readme",
+  "description": ""
 }

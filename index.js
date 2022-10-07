@@ -4,8 +4,12 @@ const port = 3000
 
 app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-  res.send("A very empty project")
+app.get('/', (_, res) => {
+  res.sendFile(path.join(__dirname + "/index.html"));
+})
+
+app.get('/api/ping', (req, res) => {
+  res.send({ message : ' A CAT ?!?!?!'.repeat(req.query.value), value : req.query.value});
 })
 
 
