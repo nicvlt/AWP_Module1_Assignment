@@ -1,3 +1,7 @@
+CREATE DATABASE catdb;
+
+\c catdb;
+
 -- create a table
 CREATE TABLE vets (
     id_vet SERIAL PRIMARY KEY,
