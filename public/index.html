@@ -5,16 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 2</title>
+    <title>Assignment 4</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body>
-    <h1>Assignment 2</h1>
-    <input type = 'number' id='inputNumber' placeholder='How many cats ?'/>
-    <button class ="buttonClass" id="button" onclick="pingApi()">Push</button>
-    <div id="boom"></div>
+    <h1>Assignment 4</h1>
+    <div style="margin-bottom: 1%">
+        <input type = 'number' id = "cat_id" placeholder = "Enter your cat's id"/>
+        <input id = "name_cat" placeholder="Enter your cat's name"/>
+        <input id = "age_cat" placeholder = "Enter your cat's age"/>
+        <input id = "gender_cat" placeholder="Enter your cat's gender"/>
+
+        <select name="request" id = "request">
+            <option value = "creation">Creation</option>
+            <option value = "read">Read</option>
+            <option value = "update">Update</option>
+            <option value = "delete">Delete</option>
+        </select>
+    </div>
+
+    <button style="margin-bottom: 5%;" class="buttonClass" id="fetchButton" onclick="executeFunction()">Fetch</button>
+    
+    <div>
+        <input type = 'number' id='inputNumber' placeholder='How many cats ?'/>
+        <button class ="buttonClass" id="button" onclick="pingApi()">Push</button>
+        <div id="boom"></div>
+    </div>
 </body>
 
 </html>
