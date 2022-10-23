@@ -8,4 +8,4 @@ It allows you to send HTTP queries to the API with a UI and get responses on an 
 Type in cmd ```npm run start```, it uses the module nodemon.
 
 ### Database
-Change whatever is written inside queries.js in order to fit your database info.
+Change whatever is written inside service.js in order to fit your database info.
