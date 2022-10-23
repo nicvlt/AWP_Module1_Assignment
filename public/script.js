@@ -39,73 +39,77 @@ const executeFunction = () => {
 }
 
 const getRead = () => {
-    var id = document.getElementById('cat_id').value
-    if(id == ""){
+    var name = document.getElementById('name_cat').value
+    console.log(name)
+
+    if(name == ""){
         fetch('/cats/')
         .then(data => data.json())
         .then(data => alert(JSON.stringify(data)))
     }else{
-        fetch('/cats/' + id)
+        fetch('/cats/' + name)
         .then(data => data.json())
         .then(data => alert(JSON.stringify(data)))
     }
 }
 
 const getCreation = () => {
-    var id = document.getElementById('cat_id').value;
-    var name = document.getElementById('name_cat').value;
-    var age = document.getElementById('age_cat').value;
-    var gender = document.getElementById('gender_cat').value;
+    var name_cat = document.getElementById('name_cat').value;
+    var age_cat = document.getElementById('age_cat').value;
+    var gender_cat = document.getElementById('gender_cat').value;
 
-    var payload = {
-        id_cat: id,
-        name_cat: name, 
-        age_cat: age, 
-        gender_cat: gender
-    }
-
-    fetch('/cats/', {
+    fetch('/cats', {
         method: 'POST',
         headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
-
+        body: JSON.stringify({name_cat, age_cat, gender_cat})
     })
-    .then(res => res.json())
-    .then(res => alert(JSON.stringify(res)))
+    .then(res => console.log(JSON.stringify(res)))
+
+    fetch('/cats/' + name_cat)
+        .then(data => data.json())
+        .then(data => alert(JSON.stringify(data)))
+    
 }
 
 const getDelete = () => {
-    var id = document.getElementById('cat_id').value;
-    fetch('/cats/' + id, {
+    var name = document.getElementById('name_cat').value;
+    fetch('/cats/' + name, {
         method: "DELETE"
     })
     .then(res => res.json())
-    .then(res => alert(JSON.stringify(res)))
+    .then(res => {
+        var success
+        if(res == 1)
+            success = true;
+        else{
+            success = false
+        }
+        alert(JSON.stringify({success}))
+    });
 }
 
 const getUpdate =() => {
-    var id = document.getElementById('cat_id').value;
-    var name = document.getElementById('name_cat').value;
-    var age = document.getElementById('age_cat').value;
-    var gender = document.getElementById('gender_cat').value;
+    var name_cat = document.getElementById('name_cat').value;
+    var age_cat = document.getElementById('age_cat').value;
+    var gender_cat = document.getElementById('gender_cat').value;
 
-    var payload = {
-        id_cat: id,
-        name_cat: name, 
-        age_cat: age, 
-        gender_cat: gender
-    }
-
-    fetch('/cats/' + id, {
+    fetch('/cats/', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({name_cat, age_cat, gender_cat})
     })
     .then(res => res.json())
-    .then(res => alert(JSON.stringify(res)))
+    .then(res =>{
+        var success
+        if(res == 1)
+            success = true;
+        else{
+            success = false
+        }
+        alert(JSON.stringify({success}))
+    });
 }
